@@ -1,0 +1,53 @@
+{
+  "Hill / Gold Dwarf": [
+    { "label": "Hill Dwarf", "name": "Hill Dwarf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDwarf000000" },
+    { "label": "Gold Dwarf", "name": "Gold Dwarf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDwarf000000" }
+  ],
+  "Mountain / Shield Dwarf": [
+    { "label": "Mountain Dwarf", "name": "Mountain Dwarf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDwarf000000" },
+    { "label": "Shield Dwarf", "name": "Shield Dwarf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDwarf000000" }
+  ],
+  "Gray Dwarf (Duergar)": { "label": "Gray Dwarf (Duergar)", "name": "Gray Dwarf (Duergar)", "uuid": "Compendium.ryus-cctools.species.Item.IYVaEQhnBjmWA5LF" },
+  
+  "High, Moon, Sun Elf": [
+    { "label": "High Elf", "name": "High Elf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspHighElf0000" },
+    { "label": "Moon Elf", "name": "Moon Elf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspHighElf0000" },
+    { "label": "Sun Elf", "name": "Sun Elf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspHighElf0000" }
+  ],
+  "Wood Elf": { "label": "Wood Elf", "name": "Wood Elf", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspWoodElf0000" },
+  "Drow": { "label": "Drow", "name": "Drow", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDrow0000000" },
+  
+  "Lightfoot Halfling": { "label": "Lightfoot Halfling", "name": "Lightfoot Halfling", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspHalfling000" },
+  "Stout / Strongheart Halfling": [
+    { "label": "Stout Halfling", "name": "Stout Halfling", "uuid": "Compendium.ryus-cctools.species.Item.4w4yj5mQkD4747yW" },
+    { "label": "Strongheart Halfling", "name": "Strongheart Halfling", "uuid": "Compendium.ryus-cctools.species.Item.4w4yj5mQkD4747yW" }
+  ],
+  "Ghostwise Halfling": { "label": "Ghostwise Halfling", "name": "Ghostwise Halfling", "uuid": "Compendium.ryus-cctools.species.Item.5hOsx05zIiKMkfVp" },
+  
+  "Human": { "name": "Human", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspHuman000000" },
+  
+  "Dragonborn - Black": { "name": "Dragonborn - Black", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "acid"} },
+  "Dragonborn - Blue": { "name": "Dragonborn - Blue", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "lightning"} },
+  "Dragonborn - Brass": { "name": "Dragonborn - Brass", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "fire"} },
+  "Dragonborn - Bronze": { "name": "Dragonborn - Bronze", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "lightning"} },
+  "Dragonborn - Copper": { "name": "Dragonborn - Copper", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "acid"} },
+  "Dragonborn - Gold": { "name": "Dragonborn - Gold", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "fire"} },
+  "Dragonborn - Green": { "name": "Dragonborn - Green", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "poison"} },
+  "Dragonborn - Red": { "name": "Dragonborn - Red", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "fire"} },
+  "Dragonborn - Silver": { "name": "Dragonborn - Silver", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "cold"} },
+  "Dragonborn - White": { "name": "Dragonborn - White", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDragonborn0", "advancement": {"id": "rVF9CzYfmkqr9emH", "value": "cold"} },
+  
+  "Forest Gnome": { "name": "Forest Gnome", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspForestGnome" },
+  "Rock Gnome": { "name": "Rock Gnome", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspRockGnome00" },
+  "Deep Gnome (Svirfneblin)": { "name": "Deep Gnome (Svirfneblin)", "uuid": "Compendium.ryus-cctools.species.Item.HemdjnC71lj8wzS8" },
+  
+  "Goliath": { "name": "Goliath", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspGoliath0000" },
+  
+  "Orc": { "name": "Orc", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspOrc00000000" },
+  
+  "Abyssal Tiefling": { "name": "Abyssal Tiefling", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspAbyssalTief" },
+  "Chthonic Tiefling": { "name": "Chthonic Tiefling", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspChthonicTie" },
+  "Infernal Tiefling": { "name": "Infernal Tiefling", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspInfernalTie" },
+  
+  "Aasimar": { "name": "Aasimar", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspAasimar0000" }  
+}
