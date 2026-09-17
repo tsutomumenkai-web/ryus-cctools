@@ -6,6 +6,7 @@
     "minimum": "14",
     "verified": "14"
   },
+  "url": "https://github.com/tsutomumenkai-web/ryus-cctools",
   "packs": [
     {
       "name": "stat-roll-macros",
