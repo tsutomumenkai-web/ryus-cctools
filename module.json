@@ -1,7 +1,7 @@
 {
   "id": "ryus-cctools",
   "title": "Ryu's Character Creation Tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -9,17 +9,12 @@
   "url": "https://github.com/tsutomumenkai-web/ryus-cctools",
   "manifest": "https://raw.githubusercontent.com/tsutomumenkai-web/ryus-cctools/refs/heads/main/module.json",
   "download": "https://github.com/tsutomumenkai-web/ryus-cctools/archive/refs/heads/main.zip",
+  "scripts": [
+    "scripts/stat-rolls.js",
+    "scripts/species-helper.js",
+    "scripts/background-helper.js"
+  ],
   "packs": [
-    {
-      "name": "stat-roll-macros",
-      "label": "Stat Roll Macros",
-      "path": "packs/stat-roll-macros",
-      "type": "Macro",
-      "ownership": {
-        "ASSISTANT": "OWNER"
-      },
-      "system": "dnd5e"
-    },
     {
       "name": "stat-roll-features",
       "label": "Stat Roll Features",
@@ -35,16 +30,6 @@
       "label": "Starting Gold",
       "path": "packs/starting-gold",
       "type": "Item",
-      "ownership": {
-        "ASSISTANT": "OWNER"
-      },
-      "system": "dnd5e"
-    },
-    {
-      "name": "species-roll-macros",
-      "label": "Species Roll Macros",
-      "path": "packs/species-roll-macros",
-      "type": "Macro",
       "ownership": {
         "ASSISTANT": "OWNER"
       },
@@ -75,16 +60,6 @@
       "label": "Species",
       "path": "packs/species",
       "type": "Item",
-      "ownership": {
-        "ASSISTANT": "OWNER"
-      },
-      "system": "dnd5e"
-    },
-    {
-      "name": "background-roll-macros",
-      "label": "Background Roll Macros",
-      "path": "packs/background-roll-macros",
-      "type": "Macro",
       "ownership": {
         "ASSISTANT": "OWNER"
       },
@@ -125,7 +100,6 @@
               "color": "#ffaa00",
               "sorting": "m",
               "packs": [
-                "stat-roll-macros",
                 "stat-roll-features"
               ]
             },
@@ -134,7 +108,6 @@
               "color": "#ffaa00",
               "sorting": "m",
               "packs": [
-                "species-roll-macros",
                 "species-roll-features",
                 "species-roll-tables",
                 "species"
@@ -145,7 +118,6 @@
               "color": "#ffaa00",
               "sorting": "m",
               "packs": [
-                "background-roll-macros",
                 "background-roll-features",
                 "background-roll-tables"
               ]
