@@ -1,0 +1,15 @@
+{
+	"artificer": { "label": "Artificer", "formula": "5d4 * 10" },
+	"barbarian": { "label": "Barbarian", "formula": "2d4 * 10" },
+	"bard": { "label": "Bard", "formula": "5d4 * 10" },
+	"cleric": { "label": "Cleric", "formula": "5d4 * 10" },
+	"druid": { "label": "Druid", "formula": "2d4 * 10" },
+	"fighter": { "label": "Fighter", "formula": "5d4 * 10" },
+	"monk": { "label": "Monk", "formula": "5d4" },
+	"paladin": { "label": "Paladin", "formula": "5d4 * 10" },
+	"ranger": { "label": "Ranger", "formula": "5d4 * 10" },
+	"rogue": { "label": "Rogue", "formula": "4d4 * 10" },
+	"sorcerer": { "label": "Sorcerer", "formula": "3d4 * 10" },
+	"warlock": { "label": "Warlock", "formula": "4d4 * 10" },
+	"wizard": { "label": "Wizard", "formula": "4d4 * 10" }
+}

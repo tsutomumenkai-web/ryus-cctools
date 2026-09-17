@@ -12,7 +12,9 @@
   "scripts": [
     "scripts/stat-rolls.js",
     "scripts/species-helper.js",
-    "scripts/background-helper.js"
+    "scripts/background-helper.js",
+    "scripts/class-wealth-helper.js",
+    "scripts/item-piles-init.js"
   ],
   "packs": [
     {
@@ -84,6 +86,16 @@
         "ASSISTANT": "OWNER"
       },
       "system": "dnd5e"
+    },
+    {
+      "name": "backgrounds",
+      "label": "Backgrounds",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
     }
   ],
   "packFolders": [
@@ -119,7 +131,8 @@
               "sorting": "m",
               "packs": [
                 "background-roll-features",
-                "background-roll-tables"
+                "background-roll-tables",
+                "backgrounds"
               ]
             }
           ]
