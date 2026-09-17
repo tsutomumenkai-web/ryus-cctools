@@ -7,6 +7,8 @@
     "verified": "14"
   },
   "url": "https://github.com/tsutomumenkai-web/ryus-cctools",
+  "manifest": "https://raw.githubusercontent.com/tsutomumenkai-web/ryus-cctools/refs/heads/main/module.json",
+  "download": "https://github.com/tsutomumenkai-web/ryus-cctools/archive/refs/heads/main.zip",
   "packs": [
     {
       "name": "stat-roll-macros",
