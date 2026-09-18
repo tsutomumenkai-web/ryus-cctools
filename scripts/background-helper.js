@@ -59,13 +59,13 @@ globalThis.ryuCCTools.rollBackground = async function({ actor }) {
     if (rolledBackground && subBackgroundTableMap[rolledBackground]) {
         // Sub-table routing left intact for future design options
     } else {
-        await processFinalSelection(rolledBackground, currentActor, backgroundItemDataMap, BACKGROUND_EQUIPMENT_DATA);
+        await processFinalBackgroundSelection(rolledBackground, currentActor, backgroundItemDataMap, BACKGROUND_EQUIPMENT_DATA);
     }
 };
 
 // --- PRIVATE HELPER FUNCTIONS (Scoped internally to isolate operational logic) ---
 
-async function processFinalSelection(finalBgName, actor, backgroundItemDataMap, backgroundEquipData) {
+async function processFinalBackgroundSelection(finalBgName, actor, backgroundItemDataMap, backgroundEquipData) {
     const choiceData = backgroundItemDataMap[finalBgName];
     if (!choiceData) {
         ui.notifications.warn(`No mapping configuration found for "${finalBgName}" inside background-mappings.json.`);

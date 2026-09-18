@@ -25,64 +25,71 @@ globalThis.ryuCCTools.rollStartingWealth = async function({ actor, classKey }) {
         return ui.notifications.error(`No starting wealth configuration mapped for class key: "${classKey}"`);
     }
 
-    ui.notifications.info(`Rolling starting wealth for ${currentActor.name}...`);
-
-       // --- DYNAMIC CURRENCY COMPILER WITH VISUAL/AUDIO DICE FIXED ---
+    // --- DYNAMIC CURRENCY COMPILER & CLEAN RE-RENDER INJECTION ---
     const updates = {};
     let totalCoinsLogged = [];
+    let rollsToExecute = [];
 
-    // Case A: Multi-Currency definition exists
+    // 1. Identify which rolls need to happen and organize them
     if (config.currencies) {
         for (const [denom, formula] of Object.entries(config.currencies)) {
-            const roll = await new Roll(formula).evaluate();
-            const currentAmount = Number(currentActor.system.currency?.[denom]) || 0;
-            
-            updates[`system.currency.${denom}`] = currentAmount + roll.total;
-            totalCoinsLogged.push(`${roll.total}${denom}`);
-            
-            // FIX: Pass the true roll structure into a standard chat message.
-            // This triggers the 3D dice animation and playing the audio effects!
-            await roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: currentActor }),
-                flavor: `<h3>🎲 ${config.label} ${denom.toUpperCase()} Roll</h3>`
-            }); 
+            rollsToExecute.push({ denom: denom, formula: formula, flavor: `<h3>${config.label} ${denom.toUpperCase()} Wealth</h3>` });
         }
-    } 
-    // Case B: Standard fallback (Old single-formula approach defaults to GP)
-    else if (config.formula) {
-        const roll = await new Roll(config.formula).evaluate();
-        const currentGp = Number(currentActor.system.currency?.gp) || 0;
+    } else if (config.formula) {
+        rollsToExecute.push({ denom: "gp", formula: config.formula, flavor: `<h3>${config.label} Starting Wealth</h3>` });
+    }
+
+    // 2. Process and post the native roll messages
+    for (let rConfig of rollsToExecute) {
+        const roll = await new Roll(rConfig.formula).evaluate();
+        const currentAmount = Number(currentActor.system.currency?.[rConfig.denom]) || 0;
         
-        updates["system.currency.gp"] = currentGp + roll.total;
-        totalCoinsLogged.push(`${roll.total}gp`);
-        
-        // FIX: Triggers full 3D visual & sound effects natively
-        await roll.toMessage({
+        updates[`system.currency.${rConfig.denom}`] = currentAmount + roll.total;
+        totalCoinsLogged.push(`${roll.total}${rConfig.denom}`);
+
+        // Generate the exact pristine native roll card
+        const chatMessage = await roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: currentActor }),
-            flavor: `<h3>💰 ${config.label} Starting Wealth</h3>`
+            flavor: rConfig.flavor
+        });
+
+        // 3. Wait for the message card to render on the sheet sidebar layout
+        const uniqueButtonId = `launch-store-${Date.now()}`;
+        
+        Hooks.on("renderChatMessageHTML", (message, htmlElement) => {
+            if (message.id === chatMessage.id) {
+                // Look for an existing button to prevent double-rendering bugs
+                if (htmlElement.querySelector(`#${uniqueButtonId}`)) return;
+
+                // Create a clean container elements box matching your preferred styling layout
+                const buttonContainer = document.createElement("div");
+                buttonContainer.style.marginTop = "8px";
+                buttonContainer.style.padding = "0 4px";
+                
+                buttonContainer.innerHTML = `
+                    <p>Wallet updated. Click below when you are ready to spend your starting currency:</p>
+                    <button type="button" id="${uniqueButtonId}" style="background: #222; color: #fff; border: 1px solid #7a2214; padding: 6px; border-radius: 4px; font-weight: bold; width: 100%; cursor: pointer;">
+                        <i class="fas fa-shopping-cart"></i> Open Equipment Marketplace
+                    </button>
+                `;
+
+                // Safely append our custom action row onto the absolute bottom of the rendered card box container
+                htmlElement.appendChild(buttonContainer);
+
+                // 4. Attach the interactive click listener hook directly onto the inserted element
+                const button = htmlElement.querySelector(`#${uniqueButtonId}`);
+                if (button) {
+                    button.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        ryuCCTools.openCreationMarket({ actor: currentActor });
+                    });
+                }
+            }
         });
     }
 
-    // 1. Commit batch database modifications cleanly in one transaction
+    // 5. Commit the final structural wallet alterations directly to the sheet database
     if (Object.keys(updates).length > 0) {
         await currentActor.update(updates);
-    }
-
-    // 2. Clear notification confirmation
-    ui.notifications.info(`Successfully added ${totalCoinsLogged.join(", ")} to your inventory wallet!`);
-
-    // 3. Open Item Piles interface automatically if active
-    if (game.modules.get("item-piles")?.active) {
-        const merchant = game.actors.getName("Character Creation Market");
-        if (merchant) {
-            setTimeout(() => {
-                // FIX: Swapped to modern game.itempiles.API endpoint architecture
-                game.itempiles.API.renderItemPileInterface(merchant, {
-                    inspectingActor: currentActor
-                });
-            }, 250);
-        } else {
-            console.warn(`[Ryu Roller] Merchant actor "Character Creation Market" was not found in the sidebar directory.`);
-        }
     }
 };

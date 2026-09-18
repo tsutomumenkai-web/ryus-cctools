@@ -111,7 +111,7 @@ globalThis.ryuCCTools.rollSpecies = async function({ actor }) {
                             const subraceResult = subraceDraw.results[0].name ? subraceDraw.results[0].name.trim() : subraceDraw.results[0].text?.trim();
                             console.log(`[Ryu Roller] Subrace Result Triggered: "${subraceResult}"`);
                             
-                            await processFinalSelection(subraceResult, currentActor, raceItemDataMap);
+                            await processFinalRaceSelection(subraceResult, currentActor, raceItemDataMap);
                         }
                     });
                 }
@@ -119,13 +119,13 @@ globalThis.ryuCCTools.rollSpecies = async function({ actor }) {
         });
     } else {
         // ROUTE B: Race does not have a subrace (e.g. Human, Orc) -> Process sheet right away
-        await processFinalSelection(rolledRace, currentActor, raceItemDataMap);
+        await processFinalRaceSelection(rolledRace, currentActor, raceItemDataMap);
     }
 };
 
 // --- PRIVATE HELPER FUNCTIONS (Scoped internally to avoid pollution) ---
 
-async function processFinalSelection(finalRaceName, actor, raceItemDataMap) {
+async function processFinalRaceSelection(finalRaceName, actor, raceItemDataMap) {
     console.log(`[Ryu Roller] Target Actor Identified:`, actor?.name);
     console.log(`[Ryu Roller] Searching JSON Map for key: "${finalRaceName}"`);
 

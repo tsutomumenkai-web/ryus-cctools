@@ -5,81 +5,91 @@ Hooks.once("ready", async () => {
 
     const MARKET_NAME = "Character Creation Market";
 
+    // 1. Exit if the store already exists in the world
     const existingMarket = game.actors.getName(MARKET_NAME);
     if (existingMarket) return;
 
-    console.log(`[Ryu Roller] "${MARKET_NAME}" not found. Commencing automated shop initialization...`);
-    ui.notifications.info(`Building "${MARKET_NAME}" framework for character creation...`);
+    console.log(`[Ryu Roller] "${MARKET_NAME}" not found. Loading curated inventory via UUID list...`);
 
-    // FIX: Swapped to an absolute standard core SVG icon to resolve the 404 error
+    // 2. Create the clean base merchant NPC
     const marketActor = await Actor.create({
         name: MARKET_NAME,
         type: "npc",
-        img: "icons/commodities/currency/coins-plain-stack-gold-yellow.webp", 
+        img: "icons/commodities/currency/coins-shield-sword-stack-silver.webp"
     });
 
+    // 3. Set Item Piles Sheet Flags
     await marketActor.update({
         "flags.item-piles.data": {
             enabled: true,
-            type: "merchant", 
-            infiniteQuantity: true, 
-            infiniteCurrencies: true, 
+            type: "merchant",
+            infiniteQuantity: true,
+            infiniteCurrencies: true,
             keepOnMerchant: true,
-            buyModifier: 1.0,  
-            sellModifier: 1.0  
+            buyModifier: 1.0,
+            sellModifier: 1.0
         }
     });
 
-        // 5. Automatically stock the market from Core 5e Compendiums with Strict Filters
-    const equipmentPack = game.packs.get("dnd5e.items"); 
-    if (equipmentPack) {
-        const index = await equipmentPack.getIndex();
-        
-        // Define base allowed item types
-        const validShopTypes = ["weapon", "equipment", "tool"];
-        const entriesToStock = index.filter(i => validShopTypes.includes(i.type));
+    // 4. Load your curated JSON list of UUID strings
+    const response = await fetch(`modules/ryus-cctools/data/market-stock.json`);
+    if (!response.ok) {
+        ui.notifications.error("Failed to load market-stock.json from the module directory.");
+        return;
+    }
+    const uuidList = await response.json();
 
-        // --- FILTER CONFIGURATIONS ---
-        const MAX_GOLD_VALUE = 250; // Block anything exceeding this price tag (e.g. Plate Armor)
-        //const BLACKLIST_KEYWORDS = ["barding", "ship", "carriage", "chariot"]; // Block mount/vehicle clutter
-        // ------------------------------
-
-        const itemsToAdd = [];
-        for (let entry of entriesToStock) {
-            const itemDoc = await equipmentPack.getDocument(entry._id);
-            if (itemDoc) {
-                const itemData = itemDoc.toObject();
-                const itemPrice = itemData.system?.price?.value || 0;
-                const itemDenom = itemData.system?.price?.denomination || "gp";
-                const itemNameLower = itemData.name.toLowerCase();
-
-                // Rule 1: Ensure it has a valid, non-zero price structure
-                if (itemPrice <= 0) continue;
-
-                // Rule 2: Ignore vehicles and mount barding clutter via keyword blacklist
-                //const isBlacklisted = BLACKLIST_KEYWORDS.some(word => itemNameLower.includes(word));
-                //if (isBlacklisted) continue;
-
-                // Rule 3: Enforce maximum starting gold thresholds (Converts silver/copper checks implicitly)
-                if (itemDenom === "gp" && itemPrice > MAX_GOLD_VALUE) continue;
-                if (itemDenom === "pp" && (itemPrice * 10) > MAX_GOLD_VALUE) continue; // Safety check for Platinum
-
-                // Rule 4: Exclude magic items or high rarity items if your systems tag them
-                const rarity = itemData.system?.rarity;
-                if (rarity && !["common", "none", ""].includes(rarity.toLowerCase())) continue;
-
-                // If it passes all safety criteria, queue it for the market
+    // 5. Dynamic Fetch Loop (Hydrates items automatically using the UUIDs)
+    const itemsToAdd = [];
+    for (const uuid of uuidList) {
+        const itemDoc = await fromUuid(uuid);
+        if (itemDoc) {
+            const itemData = itemDoc.toObject();
+            
+            // Safety Check: Ensure the item has an established default system price
+            if (itemData.system?.price?.value > 0) {
+                // Force a base quantity of 1 so it initializes validly on the actor sheet
+                if (!itemData.system.quantity) itemData.system.quantity = 1;
+                
                 itemsToAdd.push(itemData);
             }
-        }
-
-        // Batch insert the pristine inventory array
-        if (itemsToAdd.length > 0) {
-            await marketActor.createEmbeddedDocuments("Item", itemsToAdd);
-            console.log(`[Ryu Roller] Successfully filtered and stocked ${itemsToAdd.length} starting tier items into "${MARKET_NAME}".`);
+        } else {
+            console.warn(`[Ryu Roller] Could not resolve shop item with UUID: ${uuid}`);
         }
     }
 
 
-    ui.notifications.info(`Successfully created and stocked "${MARKET_NAME}"!`);
+    // 6. Batch insert everything cleanly
+    if (itemsToAdd.length > 0) {
+        await marketActor.createEmbeddedDocuments("Item", itemsToAdd);
+        console.log(`[Ryu Roller] Curated store initialization complete. ${itemsToAdd.length} items stocked.`);
+        ui.notifications.info(`Successfully created and stocked "${MARKET_NAME}" with your PHB 2024 list!`);
+    }
 });
+
+
+/**
+ * Public Remote Launcher to manually open the character creation shop
+ * @param {Object} context
+ * @param {Actor} context.actor - The character actor opening the store interface
+ */
+globalThis.ryuCCTools.openCreationMarket = function({ actor }) {
+    const currentActor = actor;
+    if (!currentActor) {
+        return ui.notifications.warn("Could not find a valid character to map to the storefront.");
+    }
+    
+    if (game.modules.get("item-piles")?.active) {
+        const merchant = game.actors.getName("Character Creation Market");
+        if (merchant) {
+            game.itempiles.API.renderItemPileInterface(merchant, {
+                inspectingActor: currentActor
+            });
+            console.log(`[Ryu Roller] Remote virtual market hook requested by ${currentActor.name}.`);
+        } else {
+            console.warn(`[Ryu Roller] Merchant actor "Character Creation Market" was not found in the sidebar directory.`);
+        }
+    } else {
+        ui.notifications.warn("The Item Piles module must be active to utilize the remote equipment storefront.");
+    }
+};
