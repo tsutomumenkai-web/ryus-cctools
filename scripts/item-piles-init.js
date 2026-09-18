@@ -26,8 +26,8 @@ Hooks.once("ready", async () => {
             infiniteQuantity: true,
             infiniteCurrencies: true,
             keepOnMerchant: true,
-            buyModifier: 1.0,
-            sellModifier: 1.0
+            buyPriceModifier: 1.0,
+            sellPriceModifier: 1.0
         }
     });
 

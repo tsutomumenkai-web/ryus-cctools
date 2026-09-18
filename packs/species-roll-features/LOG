@@ -1,7 +1,7 @@
-2026/09/17-22:19:40.769 7a2c Recovering log #214
-2026/09/17-22:19:40.776 7a2c Delete type=0 #214
-2026/09/17-22:19:40.776 7a2c Delete type=3 #212
-2026/09/17-22:20:40.988 3948 Level-0 table #219: started
-2026/09/17-22:20:40.989 3948 Level-0 table #219: 0 bytes OK
-2026/09/17-22:20:40.994 3948 Delete type=0 #217
-2026/09/17-22:20:41.003 3948 Manual compaction at level-0 from '!items!kPONKenAZgSwqRmf' @ 72057594037927935 : 1 .. '!items!kPONKenAZgSwqRmf' @ 0 : 0; will stop at (end)
+2026/09/17-22:43:56.686 7a2c Recovering log #258
+2026/09/17-22:43:56.694 7a2c Delete type=0 #258
+2026/09/17-22:43:56.694 7a2c Delete type=3 #256
+2026/09/17-22:51:30.472 3948 Level-0 table #263: started
+2026/09/17-22:51:30.472 3948 Level-0 table #263: 0 bytes OK
+2026/09/17-22:51:30.478 3948 Delete type=0 #261
+2026/09/17-22:51:30.486 3948 Manual compaction at level-0 from '!items!kPONKenAZgSwqRmf' @ 72057594037927935 : 1 .. '!items!kPONKenAZgSwqRmf' @ 0 : 0; will stop at (end)
