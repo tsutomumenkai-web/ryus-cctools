@@ -1,7 +1,7 @@
 {
   "id": "ryus-cctools",
   "title": "Ryu's Character Creation Tools",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
