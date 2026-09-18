@@ -1,7 +1,7 @@
 {
   "id": "ryus-cctools",
   "title": "Ryu's Character Creation Tools",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -33,7 +33,8 @@
     "scripts/species-helper.js",
     "scripts/background-helper.js",
     "scripts/class-wealth-helper.js",
-    "scripts/item-piles-init.js"
+    "scripts/item-piles-init.js",
+    "scripts/spell-helper.js"
   ],
   "packs": [
     {
