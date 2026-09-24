@@ -1,0 +1,188 @@
+{
+	"Acolyte": {
+		"currency": { "gp": 8 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCalligraph" },
+			{ "name": "Book (prayers)", "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBook0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHolySymbolV" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagParchment00", "quantity": 10 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagRobe0000000" }
+		]
+	},
+  
+	"Artisan": {
+		"currency": { "gp": 32 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPouch000000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+  
+	"Charlatan": {
+		"currency": { "gp": 15 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulForgeryKit" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCostume0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesFine" }
+		]
+	},
+	
+	"Criminal": {
+		"currency": { "gp": 16 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepDagger0000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulThievesToo" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCrowbar0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPouch000000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Entertainer": {
+		"currency": { "gp": 11 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCostume0000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagMirror00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPerfume0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Farmer": {
+		"currency": { "gp": 30 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSickle0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCarpenters" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHealersKit0" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPotIron0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagShovel00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Guard": {
+		"currency": { "gp": 12 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSpear00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightCross" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoBolts00000", "quantity": 20 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagLanternHood" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagManacles000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCaseCrossbo" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Guide": {
+		"currency": { "gp": 3 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepShortbow00" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoArrows0000", "quantity": 20 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCartograph" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBedroll0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagQuiver00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagTent0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Hermit": {
+		"currency": { "gp": 16 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepQuartersta" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulHerbalismK" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBedroll0000" },
+			{ "name": "Book (philosophy)", "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBook0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagLamp0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagOil00000000", "quantity": 3 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Merchant": {
+		"currency": { "gp": 22 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulNavigators" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPouch000000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Noble": {
+		"currency": { "gp": 29 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesFine" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPerfume0000" }
+		]
+	},
+	
+	"Sage": {
+		"currency": { "gp": 8 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepQuartersta" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCalligraph" },
+			{ "name": "Book (history)", "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBook0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagParchment00", "quantity": 8 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagRobe0000000" }
+		]
+	},
+	
+	"Sailor": {
+		"currency": { "gp": 20 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepDagger0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulNavigators" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagRope0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Scribe": {
+		"currency": { "gp": 23 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCalligraph" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesFine" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagLamp0000000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagOil00000000", "quantity": 3 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagParchment00", "quantity": 12 }
+		]
+	},
+	
+	"Soldier": {
+		"currency": { "gp": 14 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSpear00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepShortbow00" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoArrows0000", "quantity": 20 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHealersKit0" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagQuiver00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Wayfarer": {
+		"currency": { "gp": 16 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepDagger0000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulThievesToo" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagBedroll0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPouch000000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" }
+		]
+	},
+	
+	"Haunted One": {
+		"currency": { "gp": 14 },
+		"items": [
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCrowbar0000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHolyWater00" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagMirror00000" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagOil00000000", "quantity": 2 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagSignalWhist" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagTinderbox00" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagClothesTrav" },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagTorch000000", "quantity": 5 },
+			{ "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagWaterskin00" }
+		]
+	}
+}

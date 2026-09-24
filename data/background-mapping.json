@@ -1,0 +1,19 @@
+{
+  "Acolyte": { "name": "Acolyte", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgAcolyte0000" },
+  "Artisan": { "name": "Artisan", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgArtisan0000" },
+  "Charlatan": { "name": "Charlatan", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgCharlatan00" },
+  "Criminal": { "name": "Criminal", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgCriminal000" },
+  "Entertainer": { "name": "Entertainer", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgEntertainer" },
+  "Farmer": { "name": "Farmer", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgFarmer00000" },
+  "Guard": { "name": "Guard", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgGuard000000" },
+  "Guide": { "name": "Guide", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgGuide000000" },
+  "Hermit": { "name": "Hermit", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgHermit00000" },
+  "Merchant": { "name": "Merchant", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgMerchant000" },
+  "Noble": { "name": "Noble", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgNoble000000" },
+  "Sage": { "name": "Sage", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgSage0000000" },
+  "Sailor": { "name": "Sailor", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgSailor00000" },
+  "Scribe": { "name": "Scribe", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgScribe00000" },
+  "Soldier": { "name": "Soldier", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgSoldier0000" },
+  "Wayfarer": { "name": "Wayfarer", "uuid": "Compendium.dnd-players-handbook.origins.Item.phbbgWayfarer000" },
+  "Haunted One": { "name": "Haunted One", "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwHauntedOneodB" }
+}

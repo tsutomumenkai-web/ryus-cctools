@@ -1,0 +1,166 @@
+{
+  "id": "ryus-cctools",
+  "title": "Ryu's Character Creation Tools",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "url": "https://github.com/tsutomumenkai-web/ryus-cctools",
+  "manifest": "https://raw.githubusercontent.com/tsutomumenkai-web/ryus-cctools/refs/heads/main/module.json",
+  "download": "https://github.com/tsutomumenkai-web/ryus-cctools/archive/refs/heads/main.zip",
+  "relationships": {
+    "requires": [
+      {
+        "id": "itemacro",
+        "type": "module",
+        "manifest": "https://github.com/Foundry-Workshop/Item-Macro/releases/latest/download/module.json"
+      },
+      {
+        "id": "item-piles",
+        "type": "module",
+        "manifest": "https://github.com/fantasycalendar/FoundryVTT-ItemPiles/releases/download/3.3.4/module.json"
+      },
+      {
+        "id": "itempilesdnd5e",
+        "type": "module",
+        "manifest": "https://github.com/fantasycalendar/FoundryVTT-ItemPilesDnD5e/releases/download/1.1.0/module.json"
+      }
+    ]
+  },
+  "scripts": [
+    "scripts/stat-rolls.js",
+    "scripts/species-helper.js",
+    "scripts/background-helper.js",
+    "scripts/class-wealth-helper.js",
+    "scripts/item-piles-init.js",
+    "scripts/spell-helper.js",
+    "dist/main.js"
+  ],
+  "packs": [
+    {
+      "name": "stat-roll-features",
+      "label": "Stat Roll Features",
+      "path": "packs/stat-roll-features",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "starting-gold",
+      "label": "Starting Gold",
+      "path": "packs/starting-gold",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "species-roll-features",
+      "label": "Species Roll Features",
+      "path": "packs/species-roll-features",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "species-roll-tables",
+      "label": "Species Roll Tables",
+      "path": "packs/species-roll-tables",
+      "type": "RollTable",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "species",
+      "label": "Species",
+      "path": "packs/species",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "background-roll-features",
+      "label": "Background Roll Features",
+      "path": "packs/background-roll-features",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "background-roll-tables",
+      "label": "Background Roll Tables",
+      "path": "packs/Background-roll-tables",
+      "type": "RollTable",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    },
+    {
+      "name": "backgrounds",
+      "label": "Backgrounds",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "ownership": {
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd5e"
+    }
+  ],
+  "packFolders": [
+        {
+            "name": "Character Creation",
+            "color": "#ff5500",
+            "sorting": "m",
+            "packs": [
+                "starting-gold"
+            ],
+            "folders": [
+            {
+              "name": "Stats",
+              "color": "#ffaa00",
+              "sorting": "m",
+              "packs": [
+                "stat-roll-features"
+              ]
+            },
+            {
+              "name": "Species",
+              "color": "#ffaa00",
+              "sorting": "m",
+              "packs": [
+                "species-roll-features",
+                "species-roll-tables",
+                "species"
+              ]
+            },
+            {
+              "name": "Backgrounds",
+              "color": "#ffaa00",
+              "sorting": "m",
+              "packs": [
+                "background-roll-features",
+                "background-roll-tables",
+                "backgrounds"
+              ]
+            }
+          ]
+        }
+    ],
+  "flags": {
+    "canUpload": true
+  },
+  "description": "" 
+}
