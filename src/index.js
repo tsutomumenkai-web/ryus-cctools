@@ -168,4 +168,53 @@ globalThis.ryuCCTools.launchMultiTabSpellPicker = async function({ actor }) {
     await dialog.render(true);
 };
 
+function shouldTriggerWizardForActor(actor) {
+    if (!actor) return false;
+    if (!actor.isOwner) return;
+    if (!game.user.isGM && !actor.testUserPermission(game.user, "OWNER")) return false;
+
+    return true;
+}
+
+async function checkAndLaunchWizard(item) {
+    if (item.type !== "class" || !item.actor) return;
+    const actor = item.actor;
+
+    // Stop if the current user doesn't own/control this character
+    if (!shouldTriggerWizardForActor(actor)) return;
+
+    const classId = item.name.toLowerCase();
+
+    // Verify the module has spell configs for this class
+    try {
+        const library = await globalThis.ryuCCTools?.loadSpellConfigLibrary?.(classId);
+        if (!library || library.length === 0) return;
+    } catch (e) {
+        return;
+    }
+
+    setTimeout(async () => {
+        ui.notifications.info(`Spell configuration ready for ${item.name}. Opening Wizard...`);
+        await globalThis.ryuCCTools.launchMultiTabSpellPicker({ actor: actor });
+    }, 500);
+}
+
+// 1. Catch initial class creation (Character Creation)
+Hooks.on("createItem", async (item, options, userId) => {
+    // Only run this on the client machine belonging to the user who performed the action
+    if (userId !== game.userId) return;
+    await checkAndLaunchWizard(item);
+});
+
+// 2. Catch class level-ups (When system.levels changes)
+Hooks.on("updateItem", async (item, changes, options, userId) => {
+    if (userId !== game.userId) return;
+    if (item.type !== "class") return;
+
+    // Check if the class level was actually modified
+    if (changes.system?.levels !== undefined) {
+        await checkAndLaunchWizard(item);
+    }
+});
+
 console.log("[Ryu Roller] Modern Svelte Spell Selection framework successfully bound via ApplicationV2 Hooks!");

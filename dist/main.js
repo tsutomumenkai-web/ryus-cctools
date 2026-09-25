@@ -3714,6 +3714,41 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
     });
     await dialog.render(true);
   };
+  function shouldTriggerWizardForActor(actor) {
+    if (!actor) return false;
+    if (!actor.isOwner) return;
+    if (!game.user.isGM && !actor.testUserPermission(game.user, "OWNER")) return false;
+    return true;
+  }
+  async function checkAndLaunchWizard(item) {
+    var _a, _b;
+    if (item.type !== "class" || !item.actor) return;
+    const actor = item.actor;
+    if (!shouldTriggerWizardForActor(actor)) return;
+    const classId = item.name.toLowerCase();
+    try {
+      const library = await ((_b = (_a = globalThis.ryuCCTools) == null ? void 0 : _a.loadSpellConfigLibrary) == null ? void 0 : _b.call(_a, classId));
+      if (!library || library.length === 0) return;
+    } catch (e) {
+      return;
+    }
+    setTimeout(async () => {
+      ui.notifications.info(`Spell configuration ready for ${item.name}. Opening Wizard...`);
+      await globalThis.ryuCCTools.launchMultiTabSpellPicker({ actor });
+    }, 500);
+  }
+  Hooks.on("createItem", async (item, options, userId) => {
+    if (userId !== game.userId) return;
+    await checkAndLaunchWizard(item);
+  });
+  Hooks.on("updateItem", async (item, changes, options, userId) => {
+    var _a;
+    if (userId !== game.userId) return;
+    if (item.type !== "class") return;
+    if (((_a = changes.system) == null ? void 0 : _a.levels) !== void 0) {
+      await checkAndLaunchWizard(item);
+    }
+  });
   console.log("[Ryu Roller] Modern Svelte Spell Selection framework successfully bound via ApplicationV2 Hooks!");
 })();
 //# sourceMappingURL=main.js.map
